@@ -1,0 +1,24 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <title>ClearPass Login Form</title> 
+    </head> 
+    <body> <h2>MAC Address Blocking Tool</h2> 
+    <form id="clearPassForm"> 
+        <label for="macAddress">MAC Address (e.g., 11:22:33:44:55:66):</label><br> 
+        <input type="text" id="macAddress" name="macAddress" title="Please enter a valid MAC address in the format 11:22:33:44:55:66" required><br><br> 
+        <label for="siteDescription">Site:</label><br> 
+        <input type="text" id="siteDescription" name="siteDescription" required><br><br> 
+        <button type="button" onclick="submitForm()">Submit</button> <div id="result"></div> </form> 
+        <script> function submitForm() { 
+            var macAddress = document.getElementById('macAddress').value; 
+            var siteDescription = document.getElementById('siteDescription').value; 
+            fetch('http://127.0.0.1:5000/process', 
+            { method: 'POST', headers: { 'Content-Type': 'application/json', }, 
+            body: JSON.stringify({ macAddress: macAddress, siteDescription: siteDescription }), }) 
+            .then(response => response.json()) .then(data => { 
+                // Display the response from the server in the 'result' 
+                document.getElementById('result').innerHTML = data.message; 
+                // Assuming the server response includes a "message" field 
+            }) 
+            .catch((error) => { console.error('Error:', error); 
+            document.getElementById('result').innerHTML = 'Failed to process request.'; 
+            // Show error feedback 
+        }); } </script> </body> </html>

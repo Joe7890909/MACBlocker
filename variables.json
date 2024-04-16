@@ -1,0 +1,17 @@
+{
+    "ClearpassURL":
+       "Your clearpass URL goes here"
+    ,
+    "Clearpasstoken":
+       "Your clear pass token goes here"
+    ,
+    "MISTURL":
+       "Your MIST organiztion blacklist url goes here"
+    ,
+    "MISTToken":
+       "Your Mist token goes here"
+    ,
+    "ID":
+       "Your clearpass static host list ID goes here"
+    
+ }
