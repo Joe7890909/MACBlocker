@@ -107,6 +107,9 @@ def process():
             }
     
     return jsonify(response)
+@app.route('/', methods=['GET'])
+def DisplayWebpage():
+    return render_template(r'MACblockerfrontend.html')
 
 
 if __name__ == '__main__':
